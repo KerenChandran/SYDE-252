@@ -15,5 +15,5 @@ wo = 2*pi
 x_rec = []
 
 for k = -Inf : Inf
-    x_rec = [x_rec MyFSAnalysis(x, t, k, wo)*exp(-j*wo*k*t)]
+    x_rec = [x_rec MyFSAnalysis(x, t, k, wo)*exp(j*wo*k*t)]
 end
