@@ -1,4 +1,13 @@
 function Xw = MyFT(Xt, w, t)
-    %using Fourier Pair analysis equation
-    Xw = trapz(Xt*exp(-j*w*t), t) 
+    %frequency representation placeholder
+   Xw = []
+
+   %using Fourier Transform envelope property
+   for k = -Inf:Inf
+       wo = w/k
+
+       To = 2*pi/wo
+
+       Xw = [Xw MyFSAnalysis(Xt, t, k, wo)*To]
+   end
 end
