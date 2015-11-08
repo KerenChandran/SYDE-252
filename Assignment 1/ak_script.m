@@ -25,13 +25,18 @@ ix_last = find(t==t(1) + T)
 
 prod = []
 
-for i:length(x):
+for i=0:length(x)
     prod = [prod x(i)*comp(i)]
 end
 
 %compute ak 
-ak = (1/T)*trapz(prod, t)
+ak = (1/T)*trapz(prod(1:ix_last), t(1:ix_last))
 
 ak = real(ak)
 
-
+%{  
+    2b)
+    When calculating the Fourier Series coefficients it was found that there
+    existed a discrepancy between the real part of the coefficient value and the
+    actual coefficient value (calculated by hand).   
+}%
