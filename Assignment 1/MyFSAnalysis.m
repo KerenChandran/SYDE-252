@@ -25,4 +25,6 @@ function ak = MyFSAnalysis(x, t, k, wo)
     end
 
     ak = (1/T) * trapz(prod(1:ix_last), t(1:ix_last))
+
+    ak = real(ak)
 end
