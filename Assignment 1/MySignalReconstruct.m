@@ -1,4 +1,4 @@
-function x_rec = MySignalReconstruction(x,t,wo)
+function x_rec = MySignalReconstruct(x,t,wo)
 
     %{
       Script used to reconstruct x(t) using fourier series coefficients  
