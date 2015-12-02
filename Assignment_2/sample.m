@@ -11,6 +11,6 @@ function s = sample(acqData)
         end
     end
 
-    t = left_speaker(lower_bound:lower_bound + 3000)
+   s = left_speaker(lower_bound:lower_bound + 3000)
 
 end
