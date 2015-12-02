@@ -1,0 +1,12 @@
+Scripts to run
+
+To sample signal and pass into fourier function
+
+load(‘DTMF1.mat);
+data = sample(acqData);
+signal = sample(acqData);
+w = 0:2*pi*2000;
+f = 0:2000/(length(w)-1):2000
+transform = fourier_transform(signal', w, (0:length(signal)-1)/16000);
+figure;
+plot(f,transform);
