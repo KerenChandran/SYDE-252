@@ -1,16 +1,16 @@
-Scripts to run
+%Loads First File to test
+load(‘DTMF1.mat’)
 
-To sample signal and pass into fourier function
+%Runs Test
+dial_tones(acqData)
 
-load(‘DTMF1.mat);
-data = sample(acqData);
-signal = sample(acqData);
-w = 0:2*pi*2000;
-f = 0:2000/(length(w)-1):2000
-transform = fourier_transform(signal', w, (0:length(signal)-1)/16000);
-figure;
-plot(f,transform);
+%Output will be displayed in the console window
 
-% Get the frequencies:
-freq = get_freq(transform, f)
-% Will return matrix of freqencies. Ex: [697, 1477]
+
+%Loads Second File to test
+load(‘DTMF2.mat’)
+
+%Runs Test
+dial_tones(acqData)
+
+%Output will be displayed in the console window
