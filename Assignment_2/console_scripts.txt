@@ -10,3 +10,7 @@ f = 0:2000/(length(w)-1):2000
 transform = fourier_transform(signal', w, (0:length(signal)-1)/16000);
 figure;
 plot(f,transform);
+
+% Get the frequencies:
+freq = get_freq(transform, f)
+% Will return matrix of freqencies. Ex: [697, 1477]
