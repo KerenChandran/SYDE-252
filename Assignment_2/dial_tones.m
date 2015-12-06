@@ -8,7 +8,8 @@ function d = dial_tones(acqData)
             Signal containing the dialtones that user wants to decode
     %}
 
-    %Takes one channel of the signal to get the dial tones
+    % Takes one channel of the signal to get the dial tones.
+    % Assumes dial tones are in left or both channels
     left_speaker = acqData(:,1);
     
     %This value is used to get the upper bound of the dial_tone
@@ -59,11 +60,11 @@ function d = dial_tones(acqData)
             transform = fourier_transform(signal', w, (0:length(signal)-1)/16000);
            
             %{
-		Scans fourier transform sampled signal and retrieves highest
+                Scans fourier transform sampled signal and retrieves highest
             	frequency values, which is then passed to get mapping to get
             	the appropriate dial tone. This dial tone is then stored in
             	the dt_array
-	     %}
+            %}
             dt_arr = [dt_arr mapping(get_freq(transform, f))];
             
             %Sets index of current signal to be equal to upper bound to

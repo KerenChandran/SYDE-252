@@ -1,16 +1,16 @@
-%Loads First File to test
-load(‘DTMF1.mat’)
+% Loads First File to test
+load('DTMF1.mat')
 
-%Runs Test
+% Runs Test
 dial_tones(acqData)
 
-%Output will be displayed in the console window
+% Output will be displayed in the console window
 
 
-%Loads Second File to test
-load(‘DTMF2.mat’)
+% Loads Second File to test
+load('DTMF2.mat')
 
-%Runs Test
+% Runs Test
 dial_tones(acqData)
 
-%Output will be displayed in the console window
+% Output will be displayed in the console window

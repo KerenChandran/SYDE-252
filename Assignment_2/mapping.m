@@ -1,6 +1,6 @@
 function m = mapping(freq)
    %{
-        Function used to obtain dail tones
+        Function used to obtain dial tones
 
         Parameters
         ----------
@@ -8,14 +8,14 @@ function m = mapping(freq)
             Array containing two frequencies; first being the lower frequency, second 	     being the larger frequency
     %}
 
-    %Stores all possible dial tones in a 2D array
+    % Stores all possible dial tones in a 2D array
     dial_tones = ['1' '2' '3'; '4' '5' '6'; '7' '8' '9'; '*' '0' '#'];
 
-    %Initializes the row and column values to be -1
+    % Initializes the row and column values to be -1
     i = -1;
     j = -1;
 
-    %Uses the first frequency to retrieve the appropriate row to check
+    % Uses the first frequency to retrieve the appropriate row to check
     switch(freq(1))
         case 697
             i = 1;
@@ -27,7 +27,7 @@ function m = mapping(freq)
             i = 4;
     end
 
-    %Uses the second frequency to retrieve the appropriate column to check
+    % Uses the second frequency to retrieve the appropriate column to check
     switch(freq(2))
         case 1209
             j = 1;
@@ -37,8 +37,8 @@ function m = mapping(freq)
             j = 3;
     end
     
-    %Retrieves the number that was pressed based on the row and column vector that 
-    matched the frequency 
+    % Retrieves the number that was pressed based on the row and column vector that 
+    % matched the frequency 
     m = dial_tones(i,j);
 
 end
