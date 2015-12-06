@@ -18,7 +18,10 @@ function Xw = fourier_transform(Xt, w, t)
 
     %{
         This loops through every omega frequency value passed in.
-        We approximated the integration to be the sum of the products between the 		signal and the exponential and also multiplied it by dt which is 1/sampling 	frequency (16 kHz). This stores the real value of the signal in the output of 	the function.
+        We approximated the integration to be the sum of the products between 
+        the signal and the exponential and also multiplied it by dt which is 
+        1/sampling 	frequency (16 kHz). This stores the real value of the 
+        signal in the output of the function.
     %}
 
     for i = w

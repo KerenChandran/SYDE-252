@@ -1,6 +1,6 @@
 function d = dial_tones(acqData)
     %{
-        Function used to obtain dail tones
+        Function used to obtain dial tones
 
         Parameters
         ----------
@@ -42,40 +42,40 @@ function d = dial_tones(acqData)
             (in the time domain) did not exceed an amplitude of 0.05.
         %}
         
-        if (left_speaker(pt) > 0.05)
-            %Records lower bound
-            lower_bound = pt;
-            
-            %Calculates appropriate upper bound to be passed into the
-            %fourier transform function
-            upper_bound = lower_bound + sample_length;
-            if(speaker_length - pt < sample_length)
-                upper_bound = lower_bound + speaker_length;
-            end
-            
-            %Retrieves the single dial tone and stores it
-            signal = left_speaker(lower_bound:upper_bound);
-            
-            %Retrieves fourier transform of the signal
-            transform = fourier_transform(signal', w, (0:length(signal)-1)/16000);
-           
-            %{
-                Scans fourier transform sampled signal and retrieves highest
-            	frequency values, which is then passed to get mapping to get
-            	the appropriate dial tone. This dial tone is then stored in
-            	the dt_array
-            %}
-            dt_arr = [dt_arr mapping(get_freq(transform, f))];
-            
-            %Sets index of current signal to be equal to upper bound to
-            %avoid repeating dial tones
-            pt = upper_bound;
-            
         %Increments index counter if the amplitude of the point of the
         %signal is below the threshold (0.05)
-        else
+        if (left_speaker(pt) <= 0.05)
             pt = pt + 1;
+            continue
         end
+
+        %Records lower bound
+        lower_bound = pt;
+        
+        %Calculates appropriate upper bound to be passed into the
+        %fourier transform function
+        upper_bound = lower_bound + sample_length;
+        if(speaker_length - pt < sample_length)
+            upper_bound = lower_bound + speaker_length;
+        end
+        
+        %Retrieves the single dial tone and stores it
+        signal = left_speaker(lower_bound:upper_bound);
+        
+        %Retrieves fourier transform of the signal
+        transform = fourier_transform(signal', w, (0:length(signal)-1)/16000);
+       
+        %{
+            Scans fourier transform sampled signal and retrieves highest
+        	frequency values, which is then passed to get mapping to get
+        	the appropriate dial tone. This dial tone is then stored in
+        	the dt_array
+        %}
+        dt_arr = [dt_arr mapping(get_freq(transform, f))];
+        
+        %Sets index of current signal to be equal to upper bound to
+        %avoid repeating dial tones
+        pt = upper_bound;
     end
     
     %Outputs the dial tones of the entire signal

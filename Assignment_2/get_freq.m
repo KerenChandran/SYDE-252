@@ -11,7 +11,7 @@ function z = get_freq(transform, f)
     % Row 1 = magnitude
     % Row 2 = frequency
 
-    [m,n] = size(transform);
+    [_,n] = size(transform);
     for i = 1:1:n
         freq = f(i);
         if freq > 650 && freq < 1000
@@ -22,8 +22,8 @@ function z = get_freq(transform, f)
     end
     
     %Find the maximum magnitude and record the index
-    [mag1,freq1] = max(signal1,[],2);
-    [mag2,freq2] = max(signal2,[],2);
+    [_,freq1] = max(signal1,[],2);
+    [_,freq2] = max(signal2,[],2);
     
     % Index may not be precise due to noise and duplicates
     % so freqency will be mapped to the closest value
