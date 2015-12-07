@@ -26,7 +26,7 @@ function d = dial_tones(acqData)
     %Array to store dial_tone values
     dt_arr = [];
 
-    %Counter that keeps track how far we are in the original signlal
+    %Counter that keeps track how far we are in the original signal
     pt = 1;
 
     %Stores the length of the dial_tone signal in terms of indicies
